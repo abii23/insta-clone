@@ -4,7 +4,14 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+// ignore: must_be_immutable
+class MyApp extends StatefulWidget {
+  var numbers = 0;
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,30 +29,27 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int numbers = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          children: [
-            Spacer(),
-            IconButton(
-                onPressed: () {
-                  setState(() {});
-                },
-                icon: Icon(Icons.home)),
-            Spacer(),
-            IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-            Spacer(),
-            IconButton(onPressed: () {}, icon: Icon(Icons.add)),
-            Spacer(),
-            IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
-            Spacer(),
-            IconButton(onPressed: () {}, icon: Icon(Icons.account_box_rounded)),
-            Spacer(),
-          ],
-        ),
-      ),
-    );
+        bottomNavigationBar: BottomNavigationBar(
+      currentIndex: numbers,
+      selectedItemColor: Colors.purpleAccent,
+      unselectedItemColor: Colors.black87,
+      onTap: (selectedobj) {
+        setState(() {
+          numbers = selectedobj;
+        });
+      },
+      items: [
+        BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("")),
+        BottomNavigationBarItem(icon: Icon(Icons.search), title: Text("")),
+        BottomNavigationBarItem(icon: Icon(Icons.add), title: Text("")),
+        BottomNavigationBarItem(icon: Icon(Icons.favorite), title: Text("")),
+        BottomNavigationBarItem(icon: Icon(Icons.account_box), title: Text(""))
+      ],
+    ));
   }
 }
