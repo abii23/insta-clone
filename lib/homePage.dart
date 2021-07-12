@@ -19,7 +19,8 @@ class HomePage extends StatelessWidget {
     "images/4.jpg",
     "images/5.jpeg",
   ];
-  Future<Void> onRefresh() async => await Future.delayed(Duration(seconds: 1));
+  Future<Void> onRefresh() async => await Future.delayed(
+      Duration(seconds: 1)); //fuction for adding refresh button
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +55,7 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: RefreshIndicator(
-        onRefresh: onRefresh,
+        onRefresh: onRefresh, //refresh button also need to add above @override
         child: SingleChildScrollView(
           child: Column(
             children: [
