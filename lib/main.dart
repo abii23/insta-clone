@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'homePage.dart';
+import 'searchPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -43,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: HomePage(),
+        body: numbers == 1 ? SearchPage() : HomePage(),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: numbers,
           selectedItemColor: Colors.purpleAccent,
@@ -52,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
             setState(() {
               numbers = selectedobj;
             });
+            if (numbers == 1) {}
           },
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("")),
