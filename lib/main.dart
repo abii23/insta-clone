@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'insta clone',
       theme: ThemeData(
         //the theme data is use as a centralized way to change every wigets property
         iconTheme:
